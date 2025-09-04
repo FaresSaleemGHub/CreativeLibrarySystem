@@ -1,5 +1,4 @@
 # 📚 Creative Library System
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)<br>
 A comprehensive library management system with integrated café and room reservation modules.
 
@@ -25,9 +24,9 @@ Key Tables:
 - LibrarianPosition & Librarian: Stores librarian roles, salaries, and permissions.
 - CafeStaffPosition & CafeStaff: Stores cafe staff roles, working hours, wage, and permissions.
 - LibPermission & CaStPermission: Encodes role permissions using computed columns (bitwise representation).
-Generalization / Specialization:
-- [User] is the general entity; Customer, Librarian, and CafeStaff are specialized entities.
-- Shared attributes are in [User], role-specific attributes are in specialized tables.
+- Generalization / Specialization:
+-- [User] is the general entity; Customer, Librarian, and CafeStaff are specialized entities.
+-- Shared attributes are in [User], role-specific attributes are in specialized tables.
 
 ### 2. System Management Module
 Handles system-wide settings and audit logs.
