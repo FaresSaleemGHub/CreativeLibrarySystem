@@ -106,8 +106,8 @@ This project includes several advanced and unique design decisions that demonstr
 Fares T. H. Al-Sayed Saleem <br>
 💻 Database Designer & Developer <br>
 🌍 Gaza, Palestine <br>
-📧 [fareses11@hotmail.com] <br>
-🔗 [https://github.com/FaresSaleemGHub]
+📧 fareses11@hotmail.com <br>
+🔗 [Github](https://github.com/FaresSaleemGHub)
 
 ---
 
