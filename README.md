@@ -1,10 +1,15 @@
+# 🏛️ Fares T.H. Al-Sayed Saleem — Database Systems Lecturer
+Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience
+
+---
+
 ## 📚 Creative Library System
 A comprehensive **Database Management System (DBMS)** project designed to manage library operations, café services, and room reservations in a modern library environment.<br>
 This project demonstrates database design at all three levels — Conceptual, Representational, and Physical — ensuring strong theoretical grounding and practical implementation.
 
 ---
 
-## 📋 Database Project Overview
+### 📋 Database Project Overview
 The CreativeLibrarySystem integrates:<br>
 - Library members, librarians, and café staff
 - Book cataloging, borrowing, fines, and audit logs
@@ -14,20 +19,20 @@ The CreativeLibrarySystem integrates:<br>
 
 ---
 
-## 🏗️ 3-Level Database Design
-### 1. Conceptual Level
+### 🏗️ 3-Level Database Design
+ **1. Conceptual Level**
 - Entities: Users, Memberships, Books, Authors, Orders, Rooms<br>
 - Relationships: Borrowing, Reservation, Book–Author (M:N)<br>
 - Generalization/Specialization: User generalized into Customer, Librarian, Café Staff<br>
 **🗺️ Entity–Relationship Diagram** → [View ERD](./Concceputal-Data-Model/ERD.png)
 
-### 2. Representational / Logical Level
+**2. Representational / Logical Level**
 - Transformed ERD into relational schema with primary keys, foreign keys, and constraints.<br>
 - Implemented junction tables for many-to-many relationships.<br>
 - Applied check constraints, unique constraints, and default values.<br>
 **📐 Full Relational Schema** → [View schema](./Representational-Data-Model/Relational_Schema_Notaion.txt)
 
-### 3. Physical Level
+**3. Physical Level**
 Implemented in SQL Server with advanced features:<br>
 - Bitmasking via computed columns (permissions)<br>
 - Singleton row enforcement (LibrarySetting)<br>
@@ -37,7 +42,7 @@ Implemented in SQL Server with advanced features:<br>
 
 ---
 
-## ✨ Key Features Implemented
+### ✨ Key Features Implemented
 This project includes several advanced and unique design decisions that demonstrate strong database modeling skills:
 - **✔️ Generalization/Specialization**<br>
   User entity specialized into Customer, Librarian, CafeStaff
@@ -61,7 +66,7 @@ This project includes several advanced and unique design decisions that demonstr
 
 ---
 
-## 📂 Modules
+### 📂 Modules
 - Members Module – Users, Memberships, Customers, Librarians, Café Staff
 - System Management Module – Audit logs, library settings
 - Books Module – Categories, Books, Authors, Borrowing, Fines
@@ -70,7 +75,7 @@ This project includes several advanced and unique design decisions that demonstr
 
 ---
 
-## 📖 Learning Outcomes
+### 📖 Learning Outcomes
 This project demonstrates:
 - Complete 3-level database design process
 - Advanced SQL Server features
@@ -79,20 +84,13 @@ This project demonstrates:
 
 ---
 
-## 👤 Author
-**🏛️ Fares T.H. Al-Sayed Saleem — Database Systems Lecturer**<br>
-Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience
-
----
-
-## 📬 Connect with Me
-
+### 📬 Connect with Me
 - LinkedIn: [Fares Saleem](https://www.linkedin.com/in/fares-saleem-1578a8361/)  
 - GitHub: [FaresSaleemGHub](https://github.com/FaresSaleemGHub)  
 - Email: fareses11@hotmail.com
 
 ---
 
-## ⚠️ Intellectual Property Notice<br>
+### ⚠️ Intellectual Property Notice<br>
 All diagrams, scripts, and project designs in this repository are the intellectual property of **Fares T.H. Al-Sayed Saleem**.  
 Do **not copy, redistribute, or claim ownership** without explicit permission from the author.
