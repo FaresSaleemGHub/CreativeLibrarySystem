@@ -20,7 +20,8 @@ The CreativeLibrarySystem integrates:<br>
 - Entities: Users, Memberships, Books, Authors, Orders, Rooms<br>
 - Relationships: Borrowing, Reservation, Book–Author (M:N)<br>
 - Generalization/Specialization: User generalized into Customer, Librarian, Café Staff<br>
-- 📊 Entity–Relationship Diagram → [View ERD](/Concceputal Data Model/Entity Relationship Diagram_ERD.png)
+- 📊 Entity–Relationship Diagram → [View ERD](./Concceputal%20Data%20Model/Entity%20Relationship%20Diagram_ERD.png)
+
 
 ### 2. Representational / Logical Level
 - Transformed ERD into relational schema with primary keys, foreign keys, and constraints.<br>
@@ -38,7 +39,7 @@ Implemented in SQL Server with advanced features:<br>
 
 ---
 
-## ✨ Key Features & Unique Implementations
+## ✨ Key Features Implemented
 This project includes several advanced and unique design decisions that demonstrate strong database modeling skills:
 - ✔️Generalization/Specialization<br>
   User entity specialized into Customer, Librarian, CafeStaff
