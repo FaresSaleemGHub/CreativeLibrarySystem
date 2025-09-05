@@ -1,7 +1,7 @@
 # 🏛️ Fares T.H. Al-Sayed Saleem — Database Systems Lecturer<br>
-Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience<br>
+Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience<br><br>
 
-<hr style="height:3px; background-color:#333;" />
+<hr style="height:1px; background-color:#333;" />
 
 
 ## 📚 Creative Library System
