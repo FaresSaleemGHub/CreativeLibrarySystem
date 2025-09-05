@@ -1,10 +1,9 @@
 # 🏛️ Fares T.H. Al-Sayed Saleem — Database Systems Lecturer<br>
-**Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience**
+Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience
 
 ---
 
-# 📚 Creative Library System
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)<br>
+## 📚 Creative Library System
 A comprehensive **Database Management System (DBMS)** project designed to manage library operations, café services, and room reservations in a modern library environment.
 This project demonstrates database design at all three levels — Conceptual, Representational, and Physical — ensuring strong theoretical grounding and practical implementation.
 
@@ -98,5 +97,6 @@ Written with passion by **[@FaresSaleemGHub](https://github.com/FaresSaleemGHub)
 
 ---
 
-## 📜 License
-This project is open-source and available under the MIT License.
+## ⚠️ Intellectual Property Notice<br>
+All diagrams, scripts, and project designs in this repository are the intellectual property of **Fares T.H. Al-Sayed Saleem**.  
+Do **not copy, redistribute, or claim ownership** without explicit permission from the author.
