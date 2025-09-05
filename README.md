@@ -19,46 +19,45 @@ The CreativeLibrarySystem integrates:<br>
 ### 1. Conceptual Level
 - Entities: Users, Memberships, Books, Authors, Orders, Rooms<br>
 - Relationships: Borrowing, Reservation, Book–Author (M:N)<br>
-- Generalization/Specialization:<br>
--- User generalized into Customer, Librarian, Café Staff<br>
-  📊 Entity–Relationship Diagram → [View ERD](/Concceputal Data Model/Entity Relationship Diagram_ERD.png)
+- Generalization/Specialization: User generalized into Customer, Librarian, Café Staff<br>
+- 📊 Entity–Relationship Diagram → [View ERD](/Concceputal Data Model/Entity Relationship Diagram_ERD.png)
 
 ### 2. Representational / Logical Level
 - Transformed ERD into relational schema with primary keys, foreign keys, and constraints.<br>
 - Implemented junction tables for many-to-many relationships.<br>
 - Applied check constraints, unique constraints, and default values.<br>
- 📜 Full Relational Schema → [View schema here](/Representational Data Model/Relational Schema Notaion.txt)
+- 📜 Full Relational Schema → [View schema here](/Representational Data Model/Relational Schema Notaion.txt)
 
 ### 3. Physical Level
-- Implemented in SQL Server with advanced features:<br>
--- Bitmasking via computed columns (permissions)<br>
--- Singleton row enforcement (LibrarySetting)<br>
--- Audit logging for Add/Update/Delete<br>
--- Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)<br>
-  🛠️ SQL Script → [Open CreativeLibrarySystem.sql](/Physical Data Model/DDL_Script.sql)
+Implemented in SQL Server with advanced features:<br>
+- Bitmasking via computed columns (permissions)<br>
+- Singleton row enforcement (LibrarySetting)<br>
+- Audit logging for Add/Update/Delete<br>
+- Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)<br>
+- 🛠️ SQL Script → [Open CreativeLibrarySystem.sql](/Physical Data Model/DDL_Script.sql)
 
 ---
 
 ## ✨ Key Features & Unique Implementations
 This project includes several advanced and unique design decisions that demonstrate strong database modeling skills:
-- ✔️ Generalization/Specialization<br>
+- ✔️Generalization/Specialization<br>
   User entity specialized into Customer, Librarian, CafeStaff
-- ✔️ Bitmasking for Permissions:
+- ✔️Bitmasking for Permissions:
   LibPermission and CaStPermission tables use powers of 2 for flexible permission handling
-- ✔️ Singleton Design Pattern:
+- ✔️Singleton Design Pattern:
   LibrarySetting table restricted to only one row (lib_id = 1)
-- ✔️ Audit Logging:
+- ✔️Audit Logging:
   AuditLog table tracks all Add, Update, and Delete actions with user reference and timestamp.
-- ✔️ Support for Multi-Module Integration<br>
+- ✔️Support for Multi-Module Integration<br>
   Combines library, café, and room reservation modules in a single database.
-- ✔️ Business Rule Constraints:
+- ✔️Business Rule Constraints:
   Automatic fine tracking
   Borrowing due date validation
   Reservation overlap prevention handled in application logic
-- ✔️ Normalization & Integrity:
+- ✔️Normalization & Integrity:
   All tables 3NF
   Strong use of CHECK, DEFAULT, and UNIQUE constraints
-- ✔️ Computed Columns & Default Values<br>
+- ✔️Computed Columns & Default Values<br>
   Uses computed columns for permissions and default values for timestamps, statuses, and numeric fields.
 
 ---
@@ -73,11 +72,11 @@ This project includes several advanced and unique design decisions that demonstr
 ---
 
 ## 📖 Learning Outcomes
-- This project demonstrates:
--- Complete 3-level database design process
--- Advanced SQL Server features
--- Enforcing real-world constraints in database layer
--- Combining theory (ERD, normalization) with practice (SQL implementation)
+This project demonstrates:
+- Complete 3-level database design process
+- Advanced SQL Server features
+- Enforcing real-world constraints in database layer
+- Combining theory (ERD, normalization) with practice (SQL implementation)
 
 ---
 
