@@ -1,12 +1,10 @@
-# 🏛️ Fares T.H. Al-Sayed Saleem — Database Systems Lecturer<br>
-Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience<br>
+## 🏛️ Fares T.H. Al-Sayed Saleem — Database Systems Lecturer<br>
+Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience
 
 ---
 
-<br>
-
 ## 📚 Creative Library System
-A comprehensive **Database Management System (DBMS)** project designed to manage library operations, café services, and room reservations in a modern library environment.
+A comprehensive **Database Management System (DBMS)** project designed to manage library operations, café services, and room reservations in a modern library environment.<br>
 This project demonstrates database design at all three levels — Conceptual, Representational, and Physical — ensuring strong theoretical grounding and practical implementation.
 
 ---
