@@ -1,6 +1,6 @@
 # 📚 Creative Library System
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)<br>
-A comprehensive Database Management System (DBMS) project designed to manage library operations, café services, and room reservations in a modern library environment.
+A comprehensive **Database Management System (DBMS)** project designed to manage library operations, café services, and room reservations in a modern library environment.
 This project demonstrates database design at all three levels — Conceptual, Representational, and Physical — ensuring strong theoretical grounding and practical implementation.
 
 ---
@@ -20,13 +20,13 @@ The CreativeLibrarySystem integrates:<br>
 - Entities: Users, Memberships, Books, Authors, Orders, Rooms<br>
 - Relationships: Borrowing, Reservation, Book–Author (M:N)<br>
 - Generalization/Specialization: User generalized into Customer, Librarian, Café Staff<br>
-- 🗺️ Entity–Relationship Diagram → [View ERD](./Concceputal-Data-Model/ERD.png)
+**🗺️ Entity–Relationship Diagram** → [View ERD](./Concceputal-Data-Model/ERD.png)
 
 ### 2. Representational / Logical Level
 - Transformed ERD into relational schema with primary keys, foreign keys, and constraints.<br>
 - Implemented junction tables for many-to-many relationships.<br>
 - Applied check constraints, unique constraints, and default values.<br>
-- 📐 Full Relational Schema → [View schema](./Representational-Data-Model/Relational_Schema_Notaion.txt)
+**📐 Full Relational Schema** → [View schema](./Representational-Data-Model/Relational_Schema_Notaion.txt)
 
 ### 3. Physical Level
 Implemented in SQL Server with advanced features:<br>
@@ -34,7 +34,7 @@ Implemented in SQL Server with advanced features:<br>
 - Singleton row enforcement (LibrarySetting)<br>
 - Audit logging for Add/Update/Delete<br>
 - Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)<br>
-- 🖥️ SQL Script → [Open DDL_Script.sql](./Physical-Data-Model/DDL_Script.sql)
+**🖥️ SQL Script** → [Open DDL_Script.sql](./Physical-Data-Model/DDL_Script.sql)
 
 ---
 
@@ -81,10 +81,7 @@ This project demonstrates:
 ---
 
 ## 👤 Author
-💻 Database Designer & Developer <br>
-🌍 Gaza, Palestine <br>
-📧 fareses11@hotmail.com <br>
-🔗 [FaresSaleemGHub](https://github.com/FaresSaleemGHub)
+Written with passion by **[@FaresSaleemGHub](https://github.com/FaresSaleemGHub)**
 
 ---
 
