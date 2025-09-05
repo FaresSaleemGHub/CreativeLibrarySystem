@@ -21,7 +21,7 @@ The CreativeLibrarySystem integrates:<br>
 - Relationships: Borrowing, Reservation, Book–Author (M:N)
 - Generalization/Specialization:
 -- User generalized into Customer, Librarian, Café Staff
-- 📊 Entity–Relationship Diagram → [View ERD](Concceputal Data Model/Entity Relationship Diagram_ERD.PNG)
+- 📊 Entity–Relationship Diagram → [View ERD](Concceputal Data Model/Entity Relationship Diagram_ERD.png)
 
 ### 2. Representational / Logical Level
 - Transformed ERD into relational schema with primary keys, foreign keys, and constraints.
@@ -34,8 +34,8 @@ The CreativeLibrarySystem integrates:<br>
 -- Bitmasking via computed columns (permissions)
 -- Singleton row enforcement (LibrarySetting)
 -- Audit logging for Add/Update/Delete
--- Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)
-🛠️ SQL Script → [Open CreativeLibrarySystem.sql](Physical Data Model/DDL_Script.sql)
+-- Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)<
+- 🛠️ SQL Script → [Open CreativeLibrarySystem.sql](Physical Data Model/DDL_Script.sql)
 
 ---
 
