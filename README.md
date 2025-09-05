@@ -21,21 +21,21 @@ The CreativeLibrarySystem integrates:<br>
 - Relationships: Borrowing, Reservation, Book–Author (M:N)
 - Generalization/Specialization:
 -- User generalized into Customer, Librarian, Café Staff
-- 📊 Entity–Relationship Diagram → [View ERD](Concceputal Data Model/Entity Relationship Diagram_ERD.png)
+  📊 Entity–Relationship Diagram → [View ERD](/Concceputal Data Model/Entity Relationship Diagram_ERD.png)
 
 ### 2. Representational / Logical Level
-- Transformed ERD into relational schema with primary keys, foreign keys, and constraints.
-- Implemented junction tables for many-to-many relationships.
-- Applied check constraints, unique constraints, and default values.
-- 📜 Full Relational Schema → [View schema here](Representational Data Model/Relational Schema Notaion.txt)
+- Transformed ERD into relational schema with primary keys, foreign keys, and constraints.<br>
+- Implemented junction tables for many-to-many relationships.<br>
+- Applied check constraints, unique constraints, and default values.<br>
+ 📜 Full Relational Schema → [View schema here](/Representational Data Model/Relational Schema Notaion.txt)
 
 ### 3. Physical Level
-- Implemented in SQL Server with advanced features:
--- Bitmasking via computed columns (permissions)
--- Singleton row enforcement (LibrarySetting)
--- Audit logging for Add/Update/Delete
--- Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)<
-- 🛠️ SQL Script → [Open CreativeLibrarySystem.sql](Physical Data Model/DDL_Script.sql)
+- Implemented in SQL Server with advanced features:<br>
+-- Bitmasking via computed columns (permissions)<br>
+-- Singleton row enforcement (LibrarySetting)<br>
+-- Audit logging for Add/Update/Delete<br>
+-- Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)<br>
+  🛠️ SQL Script → [Open CreativeLibrarySystem.sql](/Physical Data Model/DDL_Script.sql)
 
 ---
 
