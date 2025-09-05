@@ -84,16 +84,16 @@ This project demonstrates:
 
 ---
 
-## 👤 Author
-Written with passion by **[@FaresSaleemGHub](https://github.com/FaresSaleemGHub)**
+## 📬 Connect with Me
+
+- LinkedIn: [Fares Saleem](https://www.linkedin.com/in/fares-saleem-1578a8361/)  
+- GitHub: [FaresSaleemGHub](https://github.com/FaresSaleemGHub)  
+- Email: fareses11@hotmail.com
 
 ---
 
-## 📬 Connect with Me
-
-- LinkedIn: [Fares Saleem](https://www.linkedin.com/in/your-linkedin)  
-- GitHub: [FaresSaleemGHub](https://github.com/FaresSaleemGHub)  
-- Email: fareses11@hotmail.com
+## 👤 Author
+Written with passion by **[@FaresSaleemGHub](https://github.com/FaresSaleemGHub)**
 
 ---
 
