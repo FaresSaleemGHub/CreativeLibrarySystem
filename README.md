@@ -5,100 +5,79 @@ This project demonstrates database design at all three levels — Conceptual, Re
 
 ---
 
-## 📋 Database Overview
-CreativeLibrarySystem is designed as a modular relational database to support library operations combined with a café and room reservation system. It maintains:
-- Users: customers, librarians, and cafe staff.
-- Books: catalog, authors, copies, borrowing, and fines.
-- Cafe: menu, orders, and item images.
-- Rooms: study and conference rooms with reservation management.
-- System Management: settings, permissions, and audit logs.
-The database enforces data integrity via primary keys, foreign keys, unique constraints, check constraints, and default values.
-
----
-## 🗂️ Database Modules
-### 1. Members Module
-Manages all users in the system: customers, librarians, and cafe staff.
-Key Tables:
-- [User]: Stores general user information such as name, email, password, phone, and join date.
-- Membership: Defines membership types with discount rates and maximum allowed borrowed books.
-- Customer: Extends users to store loyalty points and membership type.
-- LibrarianPosition & Librarian: Stores librarian roles, salaries, and permissions.
-- CafeStaffPosition & CafeStaff: Stores cafe staff roles, working hours, wage, and permissions.
-- LibPermission & CaStPermission: Encodes role permissions using computed columns (bitwise representation).
-- Generalization / Specialization:
--- [User] is the general entity; Customer, Librarian, and CafeStaff are specialized entities.
--- Shared attributes are in [User], role-specific attributes are in specialized tables.
-
-### 2. System Management Module
-Handles system-wide settings and audit logs.
-Key Tables:
-- AuditLog: Logs all database actions (Add, Update, Delete) with timestamp and user reference.
-- LibrarySetting: Singleton table storing library configuration such as max borrow days, fine rates, operating hours, login attempts, and tax rates.
-
-### 3. Books Module
-Manages books, authors, copies, borrowing, and fines.
-Key Tables:
-- BookCategory: Categories for books.
-- Book: Book metadata including ISBN, publisher, and category.
-- Author: Author information with nationality.
-- BookAuthor: Many-to-many relation between books and authors.
-- BookCopy: Tracks individual copies and status (Available, Borrowed, Lost, Damaged).
-- Borrowing: Tracks borrowing transactions with due and return dates.
-- BorrowingBookCopy: Links borrowed copies to transactions.
-- Fine: Tracks fines for late returns or damages.
-- Constraints: Borrowing ensures due_date >= borrow_date and return_date >= borrow_date. Fine payment dates cannot precede issue dates.
-
-### 4. Cafe Module
-Manages cafe menu items, orders, and item images.
-Key Tables:
-- ItemCategory: Categories of café items (e.g., drinks, snacks).
-- CafeMenuItem: Menu items with price and category.
-- ItemImage: Optional multiple images per menu item, with display order.
-- [Order]: Customer orders, payment method, total amount, and status.
-- CafeMenuItemOrder: Many-to-many relation between orders and menu items with quantity and unit price.
-
-### 5. Rooms Module
-Manages library room reservations for customers.
-Key Tables:
-- Room: Stores rooms with type (individual, group, conference, quiet, multimedia), capacity, and status.
-- Reservation: Tracks reservations, including start/end times, status, and related librarian approval.
-- Constraints: Ensures end_time >= start_time. Overlap prevention should be implemented at the application level.
+## 📋 Database Project Overview
+The CreativeLibrarySystem integrates:<br>
+- Library members, librarians, and café staff
+- Book cataloging, borrowing, fines, and audit logs
+- Café menu management and ordering system
+- Room reservations with librarian oversight
+- System settings with singleton enforcement
 
 ---
 
 ## 🏗️ 3-Level Database Design
 ### 1. Conceptual Level
-- Designed ERD with entities, relationships, and generalization/specialization.
+- Entities: Users, Memberships, Books, Authors, Orders, Rooms
+- Relationships: Borrowing, Reservation, Book–Author (M:N)
+- Generalization/Specialization:
+-- User generalized into Customer, Librarian, Café Staff
+- 📊 Entity–Relationship Diagram → [View ERD](Concceputal Data Model/Entity Relationship Diagram_ERD.PNG)
 
 ### 2. Representational / Logical Level
 - Transformed ERD into relational schema with primary keys, foreign keys, and constraints.
 - Implemented junction tables for many-to-many relationships.
 - Applied check constraints, unique constraints, and default values.
+- 📜 Full Relational Schema → [View schema here](Representational Data Model/Relational Schema Notaion.txt)
 
 ### 3. Physical Level
-- SQL Server implementation with appropriate data types (NVARCHAR, INT, DECIMAL, DATE, DATETIME, TIME, BIT).
-- Computed columns for bitmask-based permissions (LibPermission.value, CaStPermission.value).
-- Singleton table LibrarySetting ensures one global configuration row.
-- Audit logs and room reservation checks implemented at the database level.
+- Implemented in SQL Server with advanced features:
+-- Bitmasking via computed columns (permissions)
+-- Singleton row enforcement (LibrarySetting)
+-- Audit logging for Add/Update/Delete
+-- Check constraints for business rules (e.g., fine amount ≥ 0, reservation dates)
+🛠️ SQL Script → [Open CreativeLibrarySystem.sql](Physical Data Model/DDL_Script.sql)
 
 ---
 
 ## ✨ Key Features & Unique Implementations
 This project includes several advanced and unique design decisions that demonstrate strong database modeling skills:
-- ✔️ Role-Based Permissions with Bitmasking
-  LibPermission and CaStPermission tables use computed columns with powers of 2 to implement a bitmask-based permission system.
-  This allows flexible combination of multiple permissions per role and efficient permission checks in queries.
-- ✔️ Singleton Table for Global Settings
-  LibrarySetting ensures there is only one row storing global library configurations (max borrow days, fines, tax rate, operating hours, login attempts).
-  This enforces a consistent configuration across the system.
-- ### Audit Trail System 
+- ### ✔️ Generalization/Specialization<br>
+  User entity specialized into Customer, Librarian, CafeStaff
+- ### ✔️ Bitmasking for Permissions:
+  LibPermission and CaStPermission tables use powers of 2 for flexible permission handling
+- ### ✔️ Singleton Design Pattern:
+  LibrarySetting table restricted to only one row (lib_id = 1)
+- ### ✔️ Audit Logging:
   AuditLog table tracks all Add, Update, and Delete actions with user reference and timestamp.
-  Supports system accountability and traceability.
-- ### Support for Multi-Module Integration
+- ### ✔️ Support for Multi-Module Integration<br>
   Combines library, café, and room reservation modules in a single database.
-  Ensures consistent user management across modules.
-- ### Computed Columns & Default Values
+- ### ✔️ Business Rule Constraints:
+  Automatic fine tracking
+  Borrowing due date validation
+  Reservation overlap prevention handled in application logic
+- ### ✔️ Normalization & Integrity:
+  All tables 3NF
+  Strong use of CHECK, DEFAULT, and UNIQUE constraints
+- ### ✔️ Computed Columns & Default Values<br>
   Uses computed columns for permissions and default values for timestamps, statuses, and numeric fields.
+
+---
+
+## 📂 Modules
+- Members Module – Users, Memberships, Customers, Librarians, Café Staff
+- System Management Module – Audit logs, library settings
+- Books Module – Categories, Books, Authors, Borrowing, Fines
+- Café Module – Menu items, orders, item categories
+- Rooms Module – Rooms, Reservations
+
+---
+
+## 📖 Learning Outcomes
+- This project demonstrates:
+--- Complete 3-level database design process
+--- Advanced SQL Server features
+--- Enforcing real-world constraints in database layer
+--- Combining theory (ERD, normalization) with practice (SQL implementation)
 
 ---
 
