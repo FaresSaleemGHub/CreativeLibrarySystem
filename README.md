@@ -17,10 +17,10 @@ The CreativeLibrarySystem integrates:<br>
 
 ## 🏗️ 3-Level Database Design
 ### 1. Conceptual Level
-- Entities: Users, Memberships, Books, Authors, Orders, Rooms
-- Relationships: Borrowing, Reservation, Book–Author (M:N)
-- Generalization/Specialization:
--- User generalized into Customer, Librarian, Café Staff
+- Entities: Users, Memberships, Books, Authors, Orders, Rooms<br>
+- Relationships: Borrowing, Reservation, Book–Author (M:N)<br>
+- Generalization/Specialization:<br>
+-- User generalized into Customer, Librarian, Café Staff<br>
   📊 Entity–Relationship Diagram → [View ERD](/Concceputal Data Model/Entity Relationship Diagram_ERD.png)
 
 ### 2. Representational / Logical Level
@@ -41,24 +41,24 @@ The CreativeLibrarySystem integrates:<br>
 
 ## ✨ Key Features & Unique Implementations
 This project includes several advanced and unique design decisions that demonstrate strong database modeling skills:
-- ### ✔️ Generalization/Specialization<br>
+- ✔️ Generalization/Specialization<br>
   User entity specialized into Customer, Librarian, CafeStaff
-- ### ✔️ Bitmasking for Permissions:
+- ✔️ Bitmasking for Permissions:
   LibPermission and CaStPermission tables use powers of 2 for flexible permission handling
-- ### ✔️ Singleton Design Pattern:
+- ✔️ Singleton Design Pattern:
   LibrarySetting table restricted to only one row (lib_id = 1)
-- ### ✔️ Audit Logging:
+- ✔️ Audit Logging:
   AuditLog table tracks all Add, Update, and Delete actions with user reference and timestamp.
-- ### ✔️ Support for Multi-Module Integration<br>
+- ✔️ Support for Multi-Module Integration<br>
   Combines library, café, and room reservation modules in a single database.
-- ### ✔️ Business Rule Constraints:
+- ✔️ Business Rule Constraints:
   Automatic fine tracking
   Borrowing due date validation
   Reservation overlap prevention handled in application logic
-- ### ✔️ Normalization & Integrity:
+- ✔️ Normalization & Integrity:
   All tables 3NF
   Strong use of CHECK, DEFAULT, and UNIQUE constraints
-- ### ✔️ Computed Columns & Default Values<br>
+- ✔️ Computed Columns & Default Values<br>
   Uses computed columns for permissions and default values for timestamps, statuses, and numeric fields.
 
 ---
@@ -74,19 +74,18 @@ This project includes several advanced and unique design decisions that demonstr
 
 ## 📖 Learning Outcomes
 - This project demonstrates:
---- Complete 3-level database design process
---- Advanced SQL Server features
---- Enforcing real-world constraints in database layer
---- Combining theory (ERD, normalization) with practice (SQL implementation)
+-- Complete 3-level database design process
+-- Advanced SQL Server features
+-- Enforcing real-world constraints in database layer
+-- Combining theory (ERD, normalization) with practice (SQL implementation)
 
 ---
 
 ## 👤 Author
-Fares T. H. Al-Sayed Saleem <br>
 💻 Database Designer & Developer <br>
 🌍 Gaza, Palestine <br>
 📧 fareses11@hotmail.com <br>
-🔗 [Github](https://github.com/FaresSaleemGHub)
+🔗 [FaresSaleemGHub](https://github.com/FaresSaleemGHub)
 
 ---
 
