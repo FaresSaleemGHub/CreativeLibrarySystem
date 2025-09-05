@@ -1,4 +1,4 @@
-# 🏛️ Fares T.H. Al-Sayed Saleem — Database Systems Lecturer
+# 🏛️ Fares T.H. Al-Sayed Saleem — Lecturer
 Database Systems Lecturer | SQL, ERD, Relational & Physical Database Design | Academic & Practical Experience
 
 ---
