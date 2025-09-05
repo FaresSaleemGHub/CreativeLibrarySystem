@@ -40,24 +40,24 @@ Implemented in SQL Server with advanced features:<br>
 
 ## ✨ Key Features Implemented
 This project includes several advanced and unique design decisions that demonstrate strong database modeling skills:
-**✔️ Generalization/Specialization**<br>
+- **✔️ Generalization/Specialization**<br>
   User entity specialized into Customer, Librarian, CafeStaff
-**✔️ Bitmasking for Permissions**<br>
+- **✔️ Bitmasking for Permissions**<br>
   LibPermission and CaStPermission tables use powers of 2 for flexible permission handling
-**✔️ Singleton Design Pattern**<br>
+- **✔️ Singleton Design Pattern**<br>
   LibrarySetting table restricted to only one row (lib_id = 1)
-**✔️ Audit Logging**<br>
+- **✔️ Audit Logging**<br>
   AuditLog table tracks all Add, Update, and Delete actions with user reference and timestamp.
-**✔️ Support for Multi-Module Integration**<br>
+- **✔️ Support for Multi-Module Integration**<br>
   Combines library, café, and room reservation modules in a single database.
-**✔️ Business Rule Constraints**<br>
+- **✔️ Business Rule Constraints**<br>
   Automatic fine tracking
   Borrowing due date validation
   Reservation overlap prevention handled in application logic
-**✔️ Normalization & Integrity**<br>
+- **✔️ Normalization & Integrity**<br>
   All tables 3NF
   Strong use of CHECK, DEFAULT, and UNIQUE constraints
-**✔️ Computed Columns & Default Values**<br>
+- **✔️ Computed Columns & Default Values**<br>
   Uses computed columns for permissions and default values for timestamps, statuses, and numeric fields.
 
 ---
