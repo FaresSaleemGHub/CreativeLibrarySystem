@@ -1,0 +1,186 @@
+1. Members Module
+User (user_id, name, email, password, phone, date_of_birth, join_date)
+  PK: user_id
+  UNIQUE: email, phone
+  NOT NULL: name, email, password
+  CHECK: date_of_birth <= CURRENT_DATE
+  DEFAULT: join_date = CURRENT_DATE
+
+Membership (mem_id, type, discount_rate, max_books)
+  PK: mem_id
+  type: {Regular, Silver, Gold, Platinum, VIP}
+  CHECK: discount_rate BETWEEN 0.00 AND 100.00
+  CHECK: max_books >= 0
+  DEFAULT: discount_rate = 0.00
+  UNIQUE: type
+
+Customer (user_id, loyalty_point, mem_id)
+  PK: user_id
+  FK: user_id → Users(user_id)
+  FK: mem_id → Membership(mem_id)
+  CHECK: loyalty_point >= 0
+  DEFAULT: loyalty_point = 0
+
+LibrarianPosition (lib_pos_id, name, salary, permission_value)
+  PK: lib_pos_id
+  Unique: name
+  CHECK: salary >= 0
+  DEFAULT: salary = 0
+  
+Librarian (user_id, lib_pos_id)
+  PK: user_id
+  FK: user_id → Users(user_id)
+  FK: lib_pos_id → LibrarianPosition(lib_pos_id)
+
+CafeStaffPosition (caf_sta_pos_id, name, working_hours, wage_rate, permission_value) 
+  PK: caf_sta_pos_id
+  Unique: name
+  CHECK: working_hours > 0
+  CHECK: wage_rate >= 0
+  
+CafeStaff (user_id, caf_sta_pos_id)
+  PK: user_id
+  FK: user_id → User(user_id)
+  FK: caf_sta_pos_id → CafeStaffPosition(caf_sta_pos_id)
+  NOT NULL: caf_sta_pos_id
+
+LibPermission (lib_per_id, name, value)
+  PK: lib_per_id
+  Unique: name
+  COMPUTED: value = 2^(lib_per_id - 1)
+
+CaStPermission (caf_sta_per_id, name, value)
+  PK: caf_sta_per_id
+  Unique: name
+  COMPUTED: value = 2^(caf_sta_per_id - 1)
+
+2. System Management Module
+AuditLog (audit_id, action, table_name, changed_by, changed_at, record_id)
+  PK: audit_id
+  action: {Add, Update, Delete}
+  FK: changed_by → User(user_id)
+  DEFAULT: changed_at = CURRENT_TIMESTAMP
+  
+LibrarySetting (lib_id, lib_name, allow_overdue_borrow, max_borrow_days, daily_fine_rate, max_res_hou_day, tax_rate, lib_opening_time, lib_closing_time, max_login_attempt)
+  PK: lib_id
+  NOT NULL: lib_name
+  DEFAULTS:
+    lib_id = 1
+    allow_overdue_borrow = 0
+    max_borrow_days = 14
+    daily_fine_rate = 0.5
+    max_res_hou_day = 1
+    tax_rate = 0.5
+    max_login_attempt = 3
+  CHECKS:
+    lib_id = 1
+    max_borrow_days >= 0
+    daily_fine_rate >= 0
+    max_res_hou_day >= 0
+    tax_rate >= 0
+    max_login_attempt >= 0
+    lib_opening_time < lib_closing_time
+
+
+3. Books Module
+BookCategory (bok_cat_id, name)
+  PK: bok_cat_id
+  Unique: name
+  NOT NULL: name
+
+Book (bok_id, ISBN, title, description, publication_year, publisher, bok_cat_id)
+  PK: bok_id
+  Unique: ISBN
+  NOT NULL: title, ISBN
+  FK: bok_cat_id → BookCategory(bok_cat_id)
+
+Author (aut_id, name, nationality)
+  PK: aut_id
+  Unique: (name, nationality)
+  NOT NULL: name
+
+BookAuthor (bok_aut_id, bok_id, aut_id)
+  PK: bok_aut_id
+  FK: bok_id → Book (bok_id)
+  FK: aut_id → Author (aut_id)
+
+BookCopy (bok_cop_id, bok_id, shelf_location, status)
+  PK: bok_cop_id
+  FK: bok_id → Book (bok_id)
+  NOT NULL: bok_id
+  status: {Available, Borrowed, Lost, Damaged}
+  DEFAULT: status = 'Available'
+
+Borrowing (bor_id, borrow_date, due_date, return_date, cust_id, lib_id)
+  PK: bor_id
+  FK: cust_id → Customer(user_id)
+  FK: lib_id → Librarian(user_id)
+  CHECK: due_date >= borrow_date
+  CHECK: return_date >= borrow_date
+  IS NULL: return_date
+
+#BorrowingBookCopy (bor_bk_cop_id, bok_cop_id, bor_id)
+  PK: bor_bk_cop_id
+  FK: bok_cop_id → BookCopy(bok_cop_id)
+  FK: bor_id → Borrowing(bor_id)
+
+Fine (fin_id, amount, issued_at, due_date, paid_status, payment_date, bor_id)
+  PK: fin_id
+  FK: bor_id → Borrowing(bor_id)
+  NOT NULL: amount, issued_at, bor_id
+  paid_status: {Paid, Unpaid}
+  CHECK: amount >= 0
+  CHECK: payment_date >= issued_at
+
+4. Cafe Module
+ItemCategory (ite_cat_id, category_name, image_path)
+  PK: ite_cat_id
+  NOT NULL: category_name
+
+CafeMenuItem (caf_men_it_id, item_name, price, description, ite_cat_id)
+  PK: caf_men_it_id
+  FK: ite_cat_id → ItemCategory(ite_cat_id)
+  CHECK: price >= 0
+  NOT NULL: item_name, price
+  DEFAULT: price = 0 
+
+ItemImage (ite_img_id, image_path, display_order, caf_men_it_id)
+  PK: ite_img_id
+  FK: caf_men_it_id → CafeMenuItem(caf_men_it_id)
+  CHECK: display_order >= 0
+  DEFAULT: display_order = 1
+
+Order (ord_id, cust_id, caf_sta_id, order_date, payment_method, total_amount, status)
+  PK: ord_id
+  FK: cust_id → Customer(user_id)
+  FK: caf_sta_id → CafeStaff(user_id)
+  payment_method: {Cash, Credit Card, Mobile Payment}
+  status: {Pending, Completed, Cancelled}
+  CHECK: total_amount >= 0
+  DEFAULT: status = 'Pending'
+
+CafeMenuItemOrder (caf_men_ite_ord_id, caf_men_ite_id, ord_id, quantity, unit_price)
+  PK: caf_men_ite_ord_id
+  FK: caf_men_ite_id → CafeMenuItem(caf_men_ite_id)
+  FK: ord_id → Order(ord_id)
+  CHECK: quantity > 0
+  CHECK: unit_price >= 0
+  DEFAULT: quantity = 1
+
+5. Rooms Moudle
+Room (rom_id, name, capacity, type, status, location)
+  PK: rom_id
+  UNIQUE: name
+  type: {individual, group, conference, quiet, multimedia}
+  status: {Available, Occupied, Maintenance}
+  CHECK: capacity > 0
+  NOT NULL: name, capacity
+  DEFAULT: status = 'Available'
+
+Reservation (res_id, rom_id, cust_id, lib_id, status, start_time, end_time)
+  PK: res_id
+  FK: rom_id → Room(rom_id)
+  FK: cust_id → Customer(user_id)
+  FK: lib_id → Librarian(user_id)
+  status: {Pending, Reserved, Cancelled, Completed}
+  CHECK: end_time >= start_time
