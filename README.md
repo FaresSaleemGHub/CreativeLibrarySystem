@@ -1,6 +1,7 @@
 # 📚 Creative Library System
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)<br>
-A comprehensive library management system with integrated café and room reservation modules.
+A comprehensive Database Management System (DBMS) project designed to manage library operations, café services, and room reservations in a modern library environment.
+This project demonstrates database design at all three levels — Conceptual, Representational, and Physical — ensuring strong theoretical grounding and practical implementation.
 
 ---
 
@@ -65,7 +66,7 @@ Key Tables:
 
 ---
 
-## 3-Level Database Design
+## 🏗️ 3-Level Database Design
 ### 1. Conceptual Level
 - Designed ERD with entities, relationships, and generalization/specialization.
 
@@ -84,10 +85,10 @@ Key Tables:
 
 ## ✨ Key Features & Unique Implementations
 This project includes several advanced and unique design decisions that demonstrate strong database modeling skills:
-- ### Role-Based Permissions with Bitmasking
+- ✔️ Role-Based Permissions with Bitmasking
   LibPermission and CaStPermission tables use computed columns with powers of 2 to implement a bitmask-based permission system.
   This allows flexible combination of multiple permissions per role and efficient permission checks in queries.
-- ### Singleton Table for Global Settings
+- ✔️ Singleton Table for Global Settings
   LibrarySetting ensures there is only one row storing global library configurations (max borrow days, fines, tax rate, operating hours, login attempts).
   This enforces a consistent configuration across the system.
 - ### Audit Trail System 
